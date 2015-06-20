@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('auth.master')
 
 @section('content')
     <!-- **********************************************************************************************************************************************************
@@ -13,11 +13,13 @@
 		        <div class="login-wrap">
 		            {!! BootForm::text('name') !!}
 
-                    {!! BootForm::text('email') !!}
+                    {!! BootForm::email() !!}
 
 		            {!! BootForm::password() !!}
 
 		            {!! BootForm::password('password_confirmation', 'Confirm Password') !!}
+
+                    {!! BootForm::select('role', null, $roles) !!}
 
 		            {!! BootForm::submit('Register', ['class' => 'btn btn-theme btn-block']) !!}
                     <hr/>

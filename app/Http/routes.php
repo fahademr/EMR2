@@ -11,6 +11,14 @@
 |
 */
 
+
+Entrust::routeNeedsRole('super*', 'super', Redirect::back());
+Entrust::routeNeedsRole('admin*', 'admin', Redirect::back());
+Entrust::routeNeedsRole('doctor*', 'doctor', Redirect::back());
+Entrust::routeNeedsRole('receptionist*', 'receptionist', Redirect::back());
+Entrust::routeNeedsRole('accountant*', 'accountant', Redirect::back());
+Entrust::routeNeedsRole('lab*', 'lab', Redirect::back());
+
 // Authentication routes...
 Route::get('/', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -28,6 +36,38 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::get('/home', function(){
-    return view('home');
+Route::group(['prefix' => 'super'], function(){
+    get('/dashboard', function(){
+        return view('super.dashboard');
+    });
+});
+
+Route::group(['prefix' => 'admin'], function(){
+    get('/dashboard', function(){
+        return view('admin.dashboard');
+    });
+});
+
+Route::group(['prefix' => 'receptionist'], function(){
+    get('/dashboard', function(){
+        return view('receptionist.dashboard');
+    });
+});
+
+Route::group(['prefix' => 'doctor'], function(){
+    get('/dashboard', function(){
+        return view('doctor.dashboard');
+    });
+});
+
+Route::group(['prefix' => 'accountant'], function(){
+    get('/dashboard', function(){
+        return view('accountant.dashboard');
+    });
+});
+
+Route::group(['prefix' => 'lab'], function(){
+    get('/dashboard', function(){
+        return view('lab.dashboard');
+    });
 });

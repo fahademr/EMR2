@@ -145,7 +145,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         'Watson\BootstrapForm\BootstrapFormServiceProvider',
-
+        'Zizaco\Entrust\EntrustServiceProvider'
     ],
 
     /*
@@ -196,7 +196,7 @@ return [
         'Form'      => 'Collective\Html\FormFacade',
         'HTML'      => 'Collective\Html\HtmlFacade',
         'BootForm'  => 'Watson\BootstrapForm\Facades\BootstrapForm',
-
+        'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
     ],
 
 ];
