@@ -22,5 +22,9 @@
             @yield('scripts')
 
         </section>
-  </body>
+
+        <script>
+            $.backstretch("/assets/img/login-bg.jpg", {speed: 500});
+        </script>
+</body>
 </html>

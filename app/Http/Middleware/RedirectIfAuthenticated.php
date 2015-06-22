@@ -41,12 +41,8 @@ class RedirectIfAuthenticated
                 return redirect('admin/dashboard');
             }elseif($this->auth->user()->hasRole('receptionist')){
                 return redirect('receptionist/dashboard');
-            }elseif($this->auth->user()->hasRole('doctor')){
-                return redirect('doctor/dashboard');
-            }elseif($this->auth->user()->hasRole('lab')){
-                return redirect('lab/dashboard');
-            }elseif($this->auth->user()->hasRole('accountant')){
-                return redirect('accountant/dashboard');
+            }elseif($this->auth->user()->hasRole('pharmaceutical')){
+                return redirect('pharmaceutical/dashboard');
             }
         }
 

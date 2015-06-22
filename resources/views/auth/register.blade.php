@@ -34,9 +34,3 @@
 	  	</div>
 	  </div>
 @stop
-
-@section('scripts')
-    <script>
-        $.backstretch("/assets/img/doc.jpg", {speed: 500});
-    </script>
-@stop

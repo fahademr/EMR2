@@ -14,10 +14,8 @@
 
 Entrust::routeNeedsRole('super*', 'super', Redirect::back());
 Entrust::routeNeedsRole('admin*', 'admin', Redirect::back());
-Entrust::routeNeedsRole('doctor*', 'doctor', Redirect::back());
+Entrust::routeNeedsRole('pharmaceutical*', 'pharmaceutical', Redirect::back());
 Entrust::routeNeedsRole('receptionist*', 'receptionist', Redirect::back());
-Entrust::routeNeedsRole('accountant*', 'accountant', Redirect::back());
-Entrust::routeNeedsRole('lab*', 'lab', Redirect::back());
 
 // Authentication routes...
 Route::get('/', 'Auth\AuthController@getLogin');
@@ -54,20 +52,8 @@ Route::group(['prefix' => 'receptionist'], function(){
     });
 });
 
-Route::group(['prefix' => 'doctor'], function(){
+Route::group(['prefix' => 'pharmaceutical'], function(){
     get('/dashboard', function(){
-        return view('doctor.dashboard');
-    });
-});
-
-Route::group(['prefix' => 'accountant'], function(){
-    get('/dashboard', function(){
-        return view('accountant.dashboard');
-    });
-});
-
-Route::group(['prefix' => 'lab'], function(){
-    get('/dashboard', function(){
-        return view('lab.dashboard');
+        return view('pharmaceutical.dashboard');
     });
 });
