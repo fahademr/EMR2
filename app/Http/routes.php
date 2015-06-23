@@ -20,10 +20,11 @@ Entrust::routeNeedsRole('receptionist*', 'receptionist', Redirect::back());
 // Authentication routes...
 Route::get('/', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Password reset link request routes...
-    Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');
 
 // Password reset routes...
@@ -44,6 +45,8 @@ Route::group(['prefix' => 'admin'], function(){
     get('/dashboard', function(){
         return view('admin.dashboard');
     });
+
+    Route::resource('inventories', 'InventoryController');
 });
 
 Route::group(['prefix' => 'receptionist'], function(){
@@ -56,4 +59,8 @@ Route::group(['prefix' => 'pharmaceutical'], function(){
     get('/dashboard', function(){
         return view('pharmaceutical.dashboard');
     });
+
+    Route::resource('inventories', 'InventoryController');
 });
+
+

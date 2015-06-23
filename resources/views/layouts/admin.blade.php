@@ -186,21 +186,21 @@
                         <h5 class="centered">{!! Auth::user()->name !!}</h5>
 
                         <li class="mt">
-                          <a class="active" href="index.html">
+                          <a class="{{ (Request::is('admin/dashboard'))? 'active' : '' }}" href="{{ url('/admin/dashboard') }}">
                               <i class="fa fa-dashboard"></i>
                               <span>Dashboard</span>
                           </a>
                         </li>
 
                         <li class="sub-menu">
-                          <a href="javascript:;" >
+                          <a class="{{ (Request::is('admin/inventories'))? 'active' : '' }}" href="javascript:;" >
                               <i class="fa fa-desktop"></i>
-                              <span>UI Elements</span>
+                              <span>Medicines' Inventory</span>
                           </a>
                           <ul class="sub">
-                              <li><a  href="general.html">General</a></li>
-                              <li><a  href="buttons.html">Buttons</a></li>
-                              <li><a  href="panels.html">Panels</a></li>
+                              <li class="{{ (Request::is('admin/inventories'))? 'active' : '' }}"><a  href="{{ url('/admin/inventories') }}">View All</a></li>
+                              <li><a  href="">Create</a></li>
+                              <li><a  href="">Panels</a></li>
                           </ul>
                         </li>
 

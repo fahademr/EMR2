@@ -1,5 +1,5 @@
 <?php
 return [
-    'short-logo' => 'EMR',
-    'full-logo' => 'Electronic Medical Records'
+    'short-logo' => 'DMC',
+    'full-logo' => 'Dilshad Medical Center'
 ];
